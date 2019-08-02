@@ -1,0 +1,66 @@
+/*
+ * This code is supposed to display how BubbleSort is supposed to work.
+ *  
+ * The idea: Look at all consecutive pairs in array and if consecutive pair is 
+ * in wrong sequence switch it, until all are in right sequence. 
+ * 
+ * Ex. Array [5,1,7,6,2,3,4]
+ * Pass 1: [1,5,6,2,3,4,7]
+ * Pass 2: [1,5,2,3,4,5,7]
+ * Pass 3: [1,2,3,4,5,6,7] 
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int BubbleSort(int A[], int length);
+void PrintArray(int A[], int length);
+
+int main() {
+    int Pass = 0;
+    
+    int PreMadeArray[7] = {1,5,6,2,3,4,7};
+    PrintArray(PreMadeArray,7);
+    Pass = BubbleSort(PreMadeArray,7);
+    cout << "Passes: " << Pass << endl; 
+    PrintArray(PreMadeArray,7);
+    return 0;
+}
+
+int BubbleSort(int A[], int length)
+{
+    int Pass = 0;
+    int correctSequence = 0;
+    int Num1 = 0;
+    int Num2 = 0;
+    while (correctSequence != length)
+    {
+        correctSequence = 0;
+        for(int i= 0; i < length; i++)
+        {
+            if(A[i+1] < A[i] && (i+1<length))
+            {
+                Num1 = A[i+1];
+                Num2 = A[i];
+                A[i+1] = Num2;
+                A[i] = Num1;
+            }
+            else
+                correctSequence++;
+        }
+        Pass++;
+    }
+    return Pass;
+}
+
+/*
+ This function prints out an array. 
+ */
+void PrintArray(int A[],int length)
+{
+    for (int i = 0; i < length; i++){
+        cout <<  A[i] << " "; 
+    }
+    cout << endl;
+}
