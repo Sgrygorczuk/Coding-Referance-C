@@ -1,0 +1,28 @@
+#include <iostream>
+
+//A recusive function is a function that calls it self. Every recursive function needs a base case
+//where the function ends.
+
+using namespace std;
+
+int FindTheFactorial(int x)
+{
+    if((x == 1) || (x == 0))                  //This is the base case, if x = 1 or 0 then it return 
+    {
+        return 1;
+    }
+    else
+    {
+        return x * FindTheFactorial(x-1);   //Finds the factorial, so if x = 6, it takes 6 * the number - 1, so 6*5
+                                            //And so forth till x = 1;
+    }
+    return x;
+}
+
+int main()
+{
+    int x = 0;
+    cin >> x;
+    cout << FindTheFactorial(x) << endl;
+    return 0;
+}

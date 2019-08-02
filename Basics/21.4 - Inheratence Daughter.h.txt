@@ -1,0 +1,25 @@
+#ifndef DAUGHTER_H
+#define DAUGHTER_H
+
+/*
+To Inhareate traits of one class you work in the header of the Derived class
+*/
+
+class Daughter: public Mother /*Public means that all the public stuff from mother is inheritted to daughter
+                            The derived class copies, function, variable, but it also it inovkes the base classes
+                            so it calls the mothers consturctor, then the daughters constucturcor. So it's a train
+                            that it is built and dies, they are not inhertied but they do get build and destory
+                            Making Daughter = Make Mom then Daughter,
+                            Destorying Daughter = Kill Daughter, the Mom
+                        */
+{
+    public:
+        Daughter();
+        ~Daughter();
+        void doSomething();
+    protected:
+
+    private:
+};
+
+#endif // DAUGHTER_H

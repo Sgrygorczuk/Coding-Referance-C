@@ -1,0 +1,40 @@
+#include "Board.h"
+#include <iostream>
+
+using namespace std;
+
+Board::Board()
+{
+
+}
+
+Board::Board(int a)
+{
+    B = a;
+}
+
+/*
+This will add two Board object and add them. This is the most clunky way to do it.
+
+*/
+
+Board Board::operator+(Board Passed)
+{
+    Board NewBoard;
+    NewBoard.B = B + Passed.B;
+    return NewBoard;
+}
+
+
+void Board::printCrap()
+{
+    cout << "B = " << B << endl;
+
+    /*
+    The word this, is a special type of pointer and stores the adress
+    of the current object. So this-> gives you the value of the value stored at the
+    objects adress. This is a pointer. (*this).B is called defereceing the pointer.
+    */
+    cout << "this->B = " << this->B << endl;
+    cout << "(*this).B = " << (*this).B << endl;
+}

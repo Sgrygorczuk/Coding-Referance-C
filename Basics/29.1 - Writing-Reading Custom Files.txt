@@ -1,0 +1,57 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    int ID = 0;
+    string Name;
+    double Munny = 0.0;
+
+    ofstream File1("29.2 - File 1.txt");    //I opened the file while associtating it
+
+    if(File1.is_open())
+    {
+        cout << "Open" << endl;
+    }
+
+    cout << "Enter player ID, Name, and Munny" << endl;
+    /*
+    End file marker is the symoblt that says the file is at the end of the file
+    to make it you just hit Ctrl+Z;
+    */
+
+    cout << "Press Ctr+Z to end inputing" << endl;
+
+    /*
+    This gives us a format when writing so that when we read we can
+    open it and look at the data.
+    */
+
+    while(cin >> ID >> Name >> Munny)
+    {
+        File1 << ID << " " << Name << " " << Munny << " " << endl;
+    }
+
+
+    ID = 0;
+    Name = "";
+    Munny = 0.0;
+    /*
+    This reads data from a file into the memory.
+    */
+
+    File1.close();
+
+    ifstream File2("29.2 - File 1.txt");
+
+    while(File2 >> ID >> Name >> Munny)
+    {
+        cout << ID << " " << Name << " " << Munny << endl;
+    }
+
+    File2.close();
+
+    return 0;
+}

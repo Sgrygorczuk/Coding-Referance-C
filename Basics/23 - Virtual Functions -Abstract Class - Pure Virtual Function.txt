@@ -1,0 +1,83 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+Virtual means  you will use this function polymorphaicly and will
+look at the derived class to see how it should be used
+*/
+
+/*
+A pure virtual function is doesn't have a body it only says
+virtual void attack() = 0; A pure virtual function has to overwritten in
+the derived class
+*/
+
+/*
+An abstract class is a class that is designed to be specifically used as a base class.
+An abstract class contains at least one pure virtual function. You declare a pure virtual function by using a pure specifier (= 0)
+in the declaration of a virtual member function in the class declaration.
+*/
+
+class Enemy
+{
+public:
+    virtual void attack()
+    {
+        cout << "Enemy Attack" << endl;
+    }
+    virtual void attack1()= 0;  //pure virtual funtion
+protected:
+
+
+};
+
+class Ninja: public Enemy
+{
+public:
+    void attack1()
+    {
+        cout << "Chop " << endl;
+    }
+};
+
+class Viking: public Enemy
+{
+public:
+    void attack1()
+    {
+        cout << "Freya " << endl;
+    }
+};
+
+/*
+You can't use the pure virtual function in the Monster class
+A normal virtucal function dosen't have to be overwritten, a pure one
+has to.
+*/
+
+class Monster: public Enemy
+{
+public:
+    void attack1()
+    {
+
+    }
+};
+
+
+
+int main()
+{
+    Ninja Tom;
+    Viking Jerry;
+    Monster Josh;
+    Enemy *One = &Jerry;
+    Enemy *Two = &Tom;
+    Enemy *Three = &Josh;
+    One->attack1();     //Overwritten from the pure virtual function
+    Two->attack1();     //Overwritten from pure vurcutal function
+    Three->attack();    //Uses the virtucal function from Enemy class
+    return 0;
+}
+

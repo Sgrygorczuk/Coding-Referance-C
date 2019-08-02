@@ -1,0 +1,24 @@
+
+#include <iostream>
+#include "Example.h"
+using namespace std;
+
+int main ()
+{
+    int x = 0;
+    // basic operations
+    x += 10; //Adds 10 to x, equal to x = x + 10; x = 10
+    cout << x << endl;
+    x -= 3; // Subtrace 3 from x, equal to x = x - 3; x = 7
+    cout << x << endl;
+    x *=4; // Multplies x by 4, equal to x = x * 4; x = 28
+    cout << x << endl;
+    x /=2;   // Divides x by 2, equal to x = x/2; x = 14
+    cout << x << endl;
+    x %= 2; //Divdies x by 2 makes x equal to remained, 14/2 = 7, remineer 0, x = 0.
+    cout << x << endl;
+    cout << x++ << endl; //Adds 1 to x after the code is ran. These work with --.
+    cout << x << endl;
+    cout << ++x << endl; // Add the 1 first then runs the line. These work with --. 
+
+}

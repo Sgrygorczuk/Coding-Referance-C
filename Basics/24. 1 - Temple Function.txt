@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+Function templete will allow you to create a generic type of
+data, and then when you call it, C++ will look at what data type you
+are using and use that. you just can't mix data with the template<class GenericNumber>.
+You can only have one template class at a time. 
+*/
+
+template<class GenericNumber>
+
+GenericNumber add (GenericNumber a , GenericNumber b)
+{
+    return a + b;
+}
+
+
+int main()
+{
+    int a = 3;
+    int b = 4;
+    a = add(a,b);
+    cout << a << endl;
+    double c = 3.1;
+    double d = 4.2;
+    c = add(c,d);
+    cout << c << endl;
+
+    /*
+    When you add characters you just get their ascii values to be added.
+    So 0 (48) added with 0 is ' or (98)
+    */
+    char y = '0';
+    char x = '0';
+    y = add(y,x);
+    cout << y << endl;
+
+
+
+
+    return 0;
+}

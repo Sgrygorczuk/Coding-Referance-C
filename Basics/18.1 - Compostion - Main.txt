@@ -1,0 +1,22 @@
+#include <iostream>
+#include "Birthday.h"
+#include "People.h"
+
+using namespace std;
+
+/*
+the idea of compostion is that you can have two classes and one
+class can use the other class as a member
+*/
+
+int main()
+{
+Birthday Mine(19,2,1995);
+Birthday *Pointer;
+Pointer = &Mine;
+Pointer->printDate();
+Mine.printDate();
+
+People Sebastian ("Sebastian", Mine);
+Sebastian.printInfo();
+}

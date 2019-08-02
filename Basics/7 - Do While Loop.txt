@@ -1,0 +1,16 @@
+//A do while loop is an uncommon loop that puts the action of the loop first and then
+// checks the contitions later, that way at least one run of the loop will be ran.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    do{
+        cout << "Hello There" << endl;
+    }while(5 > 8);                      //The while check is out side of the do body
+                                        // and ends the while loop with a ;
+
+    return 0;
+}

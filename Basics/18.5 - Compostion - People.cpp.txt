@@ -1,0 +1,22 @@
+#include "People.h"
+#include "Birthday.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+People::People(string name, Birthday Date)
+:Name(name), DateOfBirth(Date)
+{
+}
+
+People::~People()
+{
+    //dtor
+}
+
+void People::printInfo()
+{
+    cout << Name << "'s birthday is ";
+    DateOfBirth.printDate();    //Using Birthday Function 
+}

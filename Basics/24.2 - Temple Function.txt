@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+This template<class TFirst, class TSecond> says we're working with 2 data types
+*/
+
+template<class TFirst, class TSecond>
+/*
+This function will take two data types  and compare them
+but it will return the first data that was put into it
+so if the first one was and int, it will return and int
+it the first one was a double it will return a double.
+*/
+
+TFirst smaller (TFirst a, TSecond b)
+{
+    return (a<b? a:b);
+}
+
+int main()
+{
+    int a = 34;
+    double c = 33.2;
+
+    cout << smaller(a,c) << endl;   //Returns a int 
+    cout << smaller(c,a) << endl;   //Returns a double 
+
+
+    return 0;
+}

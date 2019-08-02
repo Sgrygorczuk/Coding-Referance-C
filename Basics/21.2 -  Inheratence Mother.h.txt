@@ -1,0 +1,27 @@
+#ifndef MOTHER_H
+#define MOTHER_H
+
+
+class Mother
+{
+    public:
+        Mother();
+        ~Mother();
+        void sayName();
+        int PublicVariable;
+        /*
+        Protcected measn anything inside the class has acess to class, firends
+        have acess to class and base and derived classes have acess to it, prviate variables
+        are not inherited. It will inharate protected, it's kind of in between public and private.
+        */
+
+    protected:
+
+        int ProtectedVariable;
+
+    private:
+
+        int PortectedVariable;
+};
+
+#endif // MOTHER_H

@@ -1,0 +1,15 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    char c;
+    int x = 9;
+                            // sizeof() Determines the size of something in bytes
+
+    cout << sizeof(c) << endl;      //Chars are 1 byte = 8 bits 
+    cout << sizeof(x) << endl;      //Int is is 4 bytes 
+
+    return 0;
+}

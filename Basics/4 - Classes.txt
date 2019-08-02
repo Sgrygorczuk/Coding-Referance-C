@@ -1,0 +1,58 @@
+
+#include <iostream>
+using namespace std;
+
+class Example{		//A class is a collection of functions
+
+public: 		//Any function after this are able to use by everyone (access specifier)
+
+    Example()   //To create a constucture write down the name of the class
+    {
+        cout << "This is a empty constructor" << endl; //This will print anytime you create a new constucrtor without parametares.
+                                                   //The main use of a conttructor is to initilze variables
+    }
+
+    Example(int x){
+        SetPrivateNumber(x);    //This constuctor initlizes private number  which is x
+    }
+
+	void PrintALine()
+		{
+		cout << "Line" << endl;
+		}
+    void SetPrivateNumber(int x)
+        {
+            PrivateNumber = x;      //Changes the private variable without given without giving variable.
+        }
+    int GetName()
+        {
+            return PrivateNumber;   //Gives you the value of the private variable.
+        }
+
+		int Number; 		//You can also create variables inside the class. This is not good.
+
+private: 		//Only for the coders
+
+        int PrivateNumber; //This way no one can change the variable and mess with the program. To get to
+                           // this variable you want to create a function to interact with the variable.
+                            // This is the way it should be done.
+
+
+
+};                          //Needs semi coalen at the end
+
+
+
+int main ()
+{
+
+	Example ExampleObject; 	//This is an object of the class
+	ExampleObject.PrintALine(); //This allows you to access the function of that class, add the () after the function.
+    ExampleObject.Number = 5;
+    cout << ExampleObject.Number << endl; // Prints out Variable from Class
+    ExampleObject.SetPrivateNumber(7);      //Gives the private variable a value
+    cout << ExampleObject.GetName() << endl; //Gets the private variable to print
+    Example ExampleObject2(4);                  //I set a the private number to be 4 using the constructro
+    cout << ExampleObject2.GetName() << endl;   //pricate number ExampleObject and ExampleObject2 are diffrent.
+	return 0;
+}

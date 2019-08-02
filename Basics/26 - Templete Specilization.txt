@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+template <class T>
+
+/*
+Templete specilaization is having the templete do a diffrent things depenidng
+on which data type is passed through it
+*/
+
+class Goat
+{
+public:
+    Goat(T x)
+    {
+        cout << x << " is not a character" << endl;
+    }
+};
+
+/*
+template spcialziation, any time we use a char for the class
+it will use this special class for it
+*/
+
+template <>
+class Goat <char>
+{
+public:
+    Goat (char x)
+    {
+        cout << x << " is indeed a character" << endl;
+    }
+};
+
+int main()
+{
+    Goat <int> Face(1);
+    Goat <char> Face2 ('2');
+
+    return 0;
+}

@@ -1,0 +1,48 @@
+#include <iostream>
+#include <fstream>
+
+/*
+fstream is the libary that allows us to work with files. It allows you
+to input and output data from files.
+*/
+using namespace std;
+
+
+int main()
+{
+
+    ofstream File1; //This is a file object
+    
+    if(File1.is_open())     //The file object is not connectd to a file yet. 
+    {
+        cout << "File is open" << endl;
+    }
+    else
+    {
+        cout << "File is not open" << endl;
+    }
+
+    File1.open("28.2 - File.txt");  //Say open tuna text file. If the file dosen't exist it will create the tuna file.
+                                //File1 is the same as 28.2 - File.txt file.
+
+    File1 << "Love da TUNA \n ";
+    File1.close();
+
+    ofstream File2("28.3 - File2.txt"); //This will create a assocaite/create that file when creating the object.
+
+    if(File2.is_open())     //File2.is_open, tells you if the obecjt is connected to a file.
+    {
+        cout << "File is open" << endl;
+    }
+    else
+    {
+        cout << "File is not open" << endl;
+    }
+
+
+    File2 << "I love da beef \n";
+    File2.close();
+
+    return 0;
+}
+

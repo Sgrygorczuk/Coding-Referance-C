@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+int dimention = 0;
+
+/*
+This program shows off how to relay a 2D array to another function and 
+how to travle inside that 2D array given the method of transfer. 
+*/
+
+//To Transfer the function you will make a pointer to the first 
+//item in the 2D array and provide the dimentions or dimentions. 
+void print (int *Array, int dimention);
+
+int main()
+{
+    int dimention = 2;
+    int Array[dimention][dimention] = {{1,2},{3,4}};
+    int *PointerArray = &Array[0][0];
+    print(PointerArray, dimention);
+    return 0;
+}
+
+void print (int *Array, int dimention)
+{
+    for(int i = 0; i < dimention; i++)
+    {
+        for(int j = 0; j < dimention; j++)
+        {
+            //When traveling through the 2D array you will have to creata function such as Array+dimention*i+j
+            //This says startting at 2dArray[0] + dimention * i place meant + j placement, if the 
+            //2D array is symetrical such function will allow you to travel through the whole array. 
+            cout << *(Array+dimention*i+j) << " ";
+        }
+        cout << endl;
+    }
+
+    //Even after you do any work the pointer is still at 2DArray[0] so you can add intigers to go to sepcifc spots 
+    cout << *(Array+3)<< endl;
+
+    Array = pointer;
+
+    int B = 1;
+
+    //Or you can add varuables you calucated to go to a specific spot
+    cout <<*(Array+B) << endl;
+
+}

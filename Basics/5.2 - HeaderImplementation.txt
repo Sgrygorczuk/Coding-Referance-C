@@ -1,0 +1,41 @@
+#include "Example.h"
+#include <iostream>
+
+using namespace std;
+
+Example::Example()  //the defult contstuctor, the :: is the binary scope resolution operator,
+ :ConstVar(2)       //Have to initlize a const variable in defult constructor
+ {
+
+ }                   //and what means that the fuction or consturctior is a member of the class consturctor
+                    // Class::NameOfFunctionOrConsturctor
+
+
+Example::Example(int a, int b)  //You don't intilize in your body you intilze in between () and {}
+:Var(a),ConstVar(b)             //Don't put a ; at the end, start with :
+{
+
+}
+
+
+Example::~Example()	//You can't overload the deconstructor
+                    // You can't have the any input or return
+                    //values
+{
+
+}
+
+void Example::printVars()
+{
+    cout << Var << " " << ConstVar << endl;
+}
+
+void Example::printCrap2() const
+{
+cout << "This is a const function" << endl;
+}
+
+void Example::printCrap()
+{
+	cout << "Crap" << endl;
+}

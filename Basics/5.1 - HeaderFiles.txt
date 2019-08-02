@@ -1,0 +1,28 @@
+//A header file is a file that contains a class so that you can work on it while not being in a main file
+//It helps to seperate stuff, we use it to put in the function prototypes. With it you get 2 files, the .h file where
+//the prototypes go and the .cpp file where you will implement all the files.
+
+#ifndef EXAMPLE_H //If the header file is not defined
+#define EXAMPLE_H  // inlcude header file for this file
+
+//A member is anything in your class
+
+class Example
+{
+    public:
+        Example();  //Defult Constructor prototype
+        Example(int a, int b);  //A new constructor
+        ~Example(); //Deconstructor
+       void printCrap(); //A Function of Example
+       void printCrap2() const; //This tells you that this is a constant function
+                                //Can only be used by constant object
+       void printVars();
+
+    protected:
+
+    private:
+        int Var;
+        const int ConstVar;
+};
+
+#endif // EXAMPLE_H

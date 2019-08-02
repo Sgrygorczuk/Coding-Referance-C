@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+//There are gloabal and locacl variables, a variable created outside of fuctions is a global function
+//Any variable created in a function is a local variable and is diffrent from a global variable
+// or other local variables, so you can have variables with same name can be used diffrently
+
+int x = 5; //This is a gloabal varable
+
+void PrintVariable(){
+    int x = 6;             //This is a local variable for the function PrintVariable
+    cout << x << endl;
+}
+
+int main()
+{
+   int x = 7;               //This is a locacl variable for the main function
+   cout << x << endl;       //This will print the locacl variable
+   PrintVariable();         //This will print the varuabe for printvariable
+   cout << ::x << endl;     //this will priint the global variable, 
+			    //the :: tells the computer that you want to use the global variable
+
+                            //ALl of those outputs will be diffrent
+    return 0;
+}

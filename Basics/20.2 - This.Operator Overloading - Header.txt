@@ -1,0 +1,20 @@
+#ifndef BOARD_H
+#define BOARD_H
+
+
+class Board
+{
+    public:
+        Board();
+        Board(int a);
+        /*
+        The way to overload an operator is to create a class object
+        and name it operator(+,-,=...) and then specify the input.
+        */
+        Board operator+(Board Passed);
+        void printCrap();
+
+    private:
+        int B;
+
+};

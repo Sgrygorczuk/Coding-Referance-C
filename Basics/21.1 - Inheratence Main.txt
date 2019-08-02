@@ -1,0 +1,20 @@
+#include <iostream>
+#include "Mother.h"
+#include "Daughter.h"
+
+using namespace std;
+
+/*
+Inherating is giveing the functions from the mother (Base Class) to daughter (Derived Class)
+*/
+int main()
+{
+    Mother Mom;
+    Mom.sayName();
+
+    Daughter Tine;
+    Tine.sayName();
+
+    Tine.doSomething();
+    return 0;
+}

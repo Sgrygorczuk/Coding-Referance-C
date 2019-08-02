@@ -1,0 +1,25 @@
+Input
+
+cout << "Hello";
+cout << "Wolrd";
+
+Output 
+
+Hello World
+
+Input 
+
+cout << "Hello" << endl;
+cout << "World";
+
+Output 
+
+Hello
+World
+
+cout << "Hello \n World Today";
+
+Output
+
+Hello 
+Wolrd Today

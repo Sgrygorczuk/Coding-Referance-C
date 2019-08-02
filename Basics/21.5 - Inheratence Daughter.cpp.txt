@@ -1,0 +1,27 @@
+#include <iostream>
+#include "Mother.h"
+#include "Daughter.h"
+
+using namespace std;
+
+
+Daughter::Daughter()
+{
+    cout << "Daughter LIVES" << endl;
+}
+
+Daughter::~Daughter()
+{
+    cout << "IT DIES" << endl;
+}
+
+/*
+Has access to the public variable of Mother
+*/
+
+void Daughter::doSomething()
+{
+    PublicVariable = 1;
+    ProtectedVariable = 3;
+    // PortectedVariable = 2; Can't be done
+}

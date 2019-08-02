@@ -1,0 +1,38 @@
+// A switch is a somewhat equivalent statment to if where you give a variable and it check all possible cases.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x = 0;
+    cin >> x;
+
+    switch(x)       //Start of with switch(the variable you = things to)
+    {
+        case 5:         //Next you will list all the cases with thing you're comparing it to,
+                        //if they equal this case will play out
+
+        {
+            cout << "Five" << endl;
+            break;                      //If the case runs you will want to break out of the switch
+                                        //and not have the program check the rest of the cases
+        }
+        case 3:
+        {
+            cout << "Three" << endl;
+            break;
+        }
+        case 10:
+        {
+            cout << "Ten" << endl;
+            break;
+        }
+        default:                        //Default is when none cases match,
+                                        //it desnont need a break beayce it's at the end of the switch
+            cout << "None shall pass" << endl;
+    }
+
+    return 0;
+}

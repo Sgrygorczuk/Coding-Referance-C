@@ -1,0 +1,23 @@
+#ifndef PEOPLE_H
+#define PEOPLE_H
+
+#include "Birthday.h"
+#include <string>
+
+using namespace std;
+
+class People
+{
+    public:
+        People(string name, Birthday Date);
+        ~People();
+
+        void printInfo();
+
+
+    private:
+        string Name;
+        Birthday DateOfBirth;       //Using birhtday object 
+};
+
+#end

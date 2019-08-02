@@ -1,0 +1,13 @@
+Variables are defined by data type in front and name second
+
+<data type> name; 
+
+Ex 
+
+int Number;
+
+Inintalization is giving the new variable a value, makes sure it dosen't use any weird number that it used to have.
+
+int Number = 0;
+
+ 

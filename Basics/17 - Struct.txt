@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+/* struct or a data sturture is a group of element under one name, in this case LegoSet is the
+name of the sturcture and PieceCount, Price and Name are it's members. When creating a struct
+you have to end ith with };*/
+
+struct LegoSet{
+    int PieceCount;
+    double Price;
+    string Name;
+};
+
+/*
+Nesting is the idea of putting one data structure into another for example in this stuation
+the LegoSet Structure is part of a Theme structure. So in this case the LegoSet is the
+data type for a thing called SetsThatbelongToTheme, with some other members.
+*/
+
+struct Theme{
+    LegoSet SetThatBelongToTheme;
+    int NumberOfSets;
+    string ThemeName;
+};
+
+int main()
+{
+    /*I can create a data structre and give it a name and then I can give values or names to
+    the memebers using the dot operator/*/
+
+    LegoSet One;
+    One.Name = "Black Dragon";
+    One.PieceCount = 491;
+    One.Price = 29.99;
+
+    /*I can create a LegoSet Pointer and then I can acess each of the memebers indiviual using the
+    -> operator, in this situation I created a LegoSet pointer called PointerToTwo and then
+    I pointed it at the adress of Two, then used the -> to acess the members. PointerToTwo->Name is
+    equivalent to *(PointerToTwo).Name, however *PointerToTwo.Name is not same */
+
+
+    /*Expression	   What is evaluated	           Equivalent
+        a.b     	Member b of object                     a
+        a->b	Member b of object pointed to by a  	(*a).b
+        *a.b	Value pointed to by member b of object a	*(a.b)
+    */
+
+    LegoSet Two;
+    LegoSet *PointerToTwo;
+    PointerToTwo = &Two;
+    PointerToTwo->Price = 39.99;
+    (*PointerToTwo).Name = "White Dragon";
+    PointerToTwo->PieceCount = 653;
+
+    /*Since a data sturcture such as LegoSet is a data type you can create arrays of them. You can
+    acess them through the use of the . or -> operators while picking selecet LegoSet in the array
+    of LegoSets*/
+
+    LegoSet Three[4];
+    Three[0].Name = "King Mech";
+
+    cout << Three[0].Name << endl;
+
+    Theme NexoKnights;
+    Theme *NexoKightsPointer;
+    NexoKightsPointer = &NexoKnights;
+
+    /*
+    Here I used the LegoSet structure inside of the Theme structure and
+    now I have more data .
+    */
+
+    NexoKnights.SetThatBelongToTheme.Name = "Black Knight";
+    NexoKightsPointer->NumberOfSets = 30;
+    (*NexoKightsPointer).SetThatBelongToTheme.Price = 100.99;
+
+
+    return 0;
+}

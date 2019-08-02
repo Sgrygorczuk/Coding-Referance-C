@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+//Arrays are a list of single data type. This is a static array. it's size cannot be changed.
+// Once declared it cannot be made bigger or smaller,
+// to chage it's size you have to copy stuff over to a bigger or smaller one.
+
+using namespace std;
+
+void printArray(int TheArray[],int length)  //This is how to pass a array by referance
+{
+    for (int x = 0; x <length; x++)
+    {
+        cout << TheArray[x];
+    }
+    cout << endl;
+}
+//Passing an Array with pointers, you can change the values here and it will affect the values of the oringal
+//array
+
+void printPointArray(int *TheArray, int length)       //When refercaing array don't use []
+{
+    TheArray[0] = -3;                                   //When doing something to a pointed array no need for *
+    for (int x = 0; x <length; x++)
+    {
+        cout << TheArray[x];
+    }
+    cout << endl;
+
+}
+
+int main()
+{
+    int adress = 0;
+    int row = 0;
+    int col = 0;
+    int MyArray [5] = {1,2,3,4,5}; //The way to delclere a array is to say data type that you want
+                                  // then you give it an name followed by brackets, within the brackets
+                                    // you write the size of the array. You can intilizae it by saying
+                                    // = {1,2,3,4,5}
+
+    cout << MyArray[0] << endl;     //the array has elements and starts with 0 and goes up, a array of size 5
+                                    // goes  0,1,2,3,4. So to print out the value 1 we say MyArray[0].
+    printArray(MyArray,5);
+    printPointArray(MyArray,5);     //When passing a array no need to give adress just apss array
+    printArray(MyArray,5);
+
+                                    //Multidimensional Arrays are arrays inside arrays
+
+                                    //First bracket say how many rows you want, the second one say how many columns you want
+                                    // so we have 2 rows and 3 columns
+    int MultiArray [2][3] = {{1,3,4},{3,5,2}}; // this is two rows with three columns
+
+                                            //This is what it looks like
+                                            //1,3,4
+                                            //3,5,2
+    cout << MultiArray[0][2]  << endl; //This should print out 4
+
+    for(row = 0; row < 2; row++){           //This is how to print out the array
+        for(col = 0; col < 3; col++)
+        {
+            cout << MultiArray[row][col];
+            if (col == 2)
+            {
+                cout << endl;
+            }
+        }
+    }
+
+
+
+
+    return 0;
+}

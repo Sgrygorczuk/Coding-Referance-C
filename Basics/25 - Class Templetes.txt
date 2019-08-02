@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+You can use the templets inside classes
+*/
+
+template <class T>
+
+class Butt
+{
+public:
+    Butt(T left, T right)
+    {
+        Left = left;
+        Right = right;
+    }
+    T bigger();
+private:
+    T Left;
+    T Right;
+};
+
+/*
+If you are bulidng a function of the class outisde using a templete
+you have to do data type Class<Templete Name>::function name();
+*/
+template <class T>
+T Butt<T>::bigger ()
+{
+    return(Left>Right? Left:Right);
+}
+
+/*
+Before delcreating a class object you need to say the data types of the
+given paraminter inside the <> in between the class and object name.
+*/
+
+int main()
+{
+   Butt <double> Face(32, 21.2);    //This will say all T's are double
+   Butt <int> Face2(1,3);           //This will say all T's are ints
+   cout << Face.bigger() << endl;
+   cout << Face2.bigger() << endl;
+    return 0;
+}

@@ -1,0 +1,20 @@
+#include <iostream>
+#include "Mother.h"
+#include "Daughter.h"
+
+using namespace std;
+
+Mother::Mother()
+{
+    cout << "I am the Mother contructor" << endl;
+}
+
+Mother::~Mother()
+{
+    cout << "Mother died" << endl;
+}
+
+void Mother::sayName()
+{
+    cout << "MOM" << endl;
+}

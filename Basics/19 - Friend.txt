@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+A friend function is not part of the class however it can acess
+the class variables and functions, the class has the friend
+keyword, no where else.
+*/
+
+class SmartAss
+{
+    public:
+        SmartAss(){Anwser= 0;}
+
+    private:
+        int Anwser;
+
+        friend void SmartAssFriend (SmartAss &Dumb); //This is the firend prottype and takes the class object as it's variable
+};
+
+void SmartAssFriend (SmartAss &Dumb)
+{
+    Dumb.Anwser = 99;
+    cout << Dumb.Anwser << endl;
+}
+
+/*
+Using a friend function you can create function that direectly change 
+the variables inside an object without having a function be a prart of 
+the class
+*/
+
+int main()
+{
+    SmartAss New;           //Creates object with Anwser = 0
+    SmartAssFriend(New);  //Passes through the friend function and changes Aneser =99, then prints it out. 
+    return 0;
+}

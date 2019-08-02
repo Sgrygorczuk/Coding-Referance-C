@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+//Fucntion overloading is the idea that you can make more than one function with the same name
+//that take diffrent type of data, it helps to use the same function even though you are using/
+// a diffrent data type.
+
+PrintNumber(int x){                     //Print fucntion for intigers, if variable is a int then it will go here
+    cout << "This is an int" << endl;
+}
+
+PrintNumber(float x)                    //Print functuon for floars, if the variable is a float this will start
+{
+    cout << "This is a float" << endl;
+}
+
+int main()
+{
+   int x = 0;
+   float z = 0;
+   PrintNumber(x);  //Same name but diffrent function
+   PrintNumber(z);
+    return 0;
+}

@@ -1,0 +1,27 @@
+
+#include <iostream>
+#include "Example.h" //Have to include the header so that
+		     // the program knows what object it's creatign from what class
+using namespace std;
+
+int main ()
+{
+    const int x = 1; //This makes sure that you can't change the value of x
+    const Example ConstYes;
+    ConstYes.printCrap2();  //A consts object can only use const function
+                            //A non const object can only use non const functions
+
+
+    Example Yes;    //Object
+    Yes.printCrap();    //Using a function of a class using a .
+    Example *ExamplePointer; //Creating a pointer for the class
+    ExamplePointer = &Yes;  //Sets the pointer to the adress for the Yes Object
+    ExamplePointer->printCrap(); //Uses the pointer to acess the function inside the class
+
+    Example Nope(1,42);
+    Example *ExamplePointer2;
+    ExamplePointer2 = &Nope;
+    ExamplePointer2->printVars();
+
+	return 0;
+}

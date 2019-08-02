@@ -1,0 +1,34 @@
+/*
+Will work on C++11, the idea is that it will go character
+by character until it find the /0 character and then quits the loop
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string Range = {"Never!"};
+    for (char character : Range)
+    {
+        cout << character << " ";
+    }
+
+ /*The continue says skip this rotation and go to the next one.*/
+
+int main()
+{
+  int i = 10;
+    for(i; i > 0;i--)
+    {
+    if(i == 5)
+        {
+        continue;
+        }
+    cout << i << endl;
+    }
+    
+return 0;
+
+}

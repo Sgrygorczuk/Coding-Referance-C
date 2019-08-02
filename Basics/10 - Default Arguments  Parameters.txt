@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int Volume(int length = 1, int width = 1, int height = 1)      //When creating a function you can assing values
+                                                        //to the paramiters so that if the user dosen't it will still work
+{
+    return length * width * height;
+}
+
+int main()
+{
+    cout << Volume() << endl;   //No paramiters given so the program will do 1*1*1 = 1
+    cout << Volume(2) << endl;   //First paramiter is given so it is 2*1*1 = 2
+    cout << Volume(2,4) << endl;   //First and second are given so it is 2*4*1 = 8
+    cout << Volume(2,4,6) << endl; //All paraimters are given so it's 2*4*6 = 48
+
+    return 0;
+}

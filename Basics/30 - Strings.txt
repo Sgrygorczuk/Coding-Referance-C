@@ -1,0 +1,108 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+
+//Main Function
+int main()
+{
+    string Bucky;
+    string x;
+    string S1 = "Hamster";
+    string S2 = "";
+    string S3 = "";
+    string S4 = "OOOOO MY, Captian why you so cool?!";
+    string S5 = "Beans";
+    string S6 = "Cows";
+    string S7 = "Ham is spam yes I am";
+
+
+    /*
+    If you are inputting a string and you input "Ha ahaa" it will only read
+    "Ha" because cin only reads till the first blank space.
+    */
+    cin >> Bucky;
+    cout << "Tuna is " << Bucky << " favorite sandwitch." << endl;
+
+    /*
+    get line will copy the input until we hit enter or get a new line of text
+    "Hi my name is Berry" will be all copied. But if "Hi my \n is Berry" only
+    "Hi my" would be copied.
+    */
+    getline(cin, x);
+    cout << x << endl;
+
+    S2 = S1; //S2 now has the same string as S1.
+    S3.assign(S1);  //S3 is now the same as S1.
+    cout << S1 << " " << S2 << " " << S3 << "\n" << endl;
+
+
+    /*
+    Strings are arrays of character and you can use them in the same way
+    */
+
+    cout << S1[2] << "\n" << endl; //The index 2 is m so it will print m.
+
+    for(int i = 0; i < S1.length(); i++)
+    {
+        cout << S1[i] << "\n" << endl;
+    }
+
+    /*
+    The substr takes two paraimters, the beining index and the second is how
+    many hcaracter you want so substr(start, how much more)
+    */
+
+    cout << S4.substr(10,4) << "\n" << endl;
+
+    /*
+    There is a swap function that can change the contents of the two stings,
+    it requeires one paramiter and that is the other string you are swapping with.
+    Use full for sorting.
+    */
+
+    cout << "S5: " << S5 << " S6: " << S6 << endl;
+    S5.swap(S6);
+    cout << "S5: " << S5 << " S6: " << S6 << "\n" <<  endl;
+
+    /*
+    The find functtion is the given paramiter is. However if you have more than one
+    of the paramiters it will give you the first occurance of that input.
+    */
+
+    cout << "S7: " << S7 << endl;
+    cout << S7.find("am") << endl; //Will give you the index of the first occurce so i = 1;
+    cout << S7.rfind("am") << "\n " << endl; //This will start from the end and will give you the last am occurance.
+
+    /*
+    The erase function takes only one paramiter and it is the character you want to start erasing it from
+    */
+
+    cout << "S7: " << S7 << endl;
+    cout << "S7 after erased :" << S7.erase(10) << "\n" <<  endl;
+
+    /*
+    The replace function asks for three paramiters where do you want to start and how many
+    character do you want to replace, and the last one is what you want to replace it with.
+    You don't have to replace it with the same number of characters. This works very well
+    with find functions.
+    */
+
+    cout << "S4: " << S4 << endl;
+    S4.replace(3,4, "HHAHAHAH");
+    cout << "S4 after replacing: " << S4 << "\n" << endl;
+
+    /*
+    Insert can just place a new piece to the sting but it dosen't replce anything
+    It takes two paramiters, where you wanna start and the second one is what
+    you want yo add
+    */
+
+    cout << "S1: " << S1 << endl;
+    S1.insert(0, "Space ");
+    cout << "S1 after insert: " << S1 << "\n" << endl;
+
+    return 0;
+}

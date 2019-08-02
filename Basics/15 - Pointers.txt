@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+void PassByValue (int x)        //In PassByValue the computer makes a copy of the
+                                //Sumbited paramiter. So you just say int x, you want a copy of that
+                                // value. The value of the copy will be affected but the value of the orignal
+                                // is not affected .
+{
+    x = 99;
+}
+
+void PassByReferance(int *x)        //In pass by refercne the compter uses the adress
+                                //and value of the provided paramiter. So you say int *x, saying you want a pointer
+                                // of oribnal value. This will change the value of the orignal variabl.e
+{
+    *x = 66;                    //This say value of x = 66.
+}
+
+int main()
+{
+    int point1 = 0;
+    int point2 = 0;
+    int point = 5;
+    cout << &point << endl;     //&Name is the adress of the name
+
+    int *pointer;             //This is how you declece a pointer
+    pointer = &point;           //pointer is equal to adress of point
+
+    cout << pointer << endl;    //This and &point are the same
+
+    PassByValue(point1);
+    PassByReferance(&point2);      //To pass the pointer you need to give the adress
+    cout << point1 << " " << point2 << endl;    //
+
+
+                                    //So we can create an array and have pointers point
+                                    //to each elemnt. Since they are 4 bytes each they should be right next to each other .
+
+    int PointerArray[4];
+    int *ArrayPointer1 = &PointerArray[0];
+    int *ArrayPointer2 = &PointerArray[1];
+    int *ArrayPointer3 = &PointerArray[2];
+    int *ArrayPointer4 = &PointerArray[3];
+
+    cout << ArrayPointer1 << " " << ArrayPointer2 << " " << ArrayPointer3 << endl;
+
+    ArrayPointer1 += 2;         //this will change the elemnt it points to, moving it by 2, you don't change the 
+                                //Adress you are changing the place it points to
+
+    cout << ArrayPointer1 << endl;
+
+
+    return 0;
+}

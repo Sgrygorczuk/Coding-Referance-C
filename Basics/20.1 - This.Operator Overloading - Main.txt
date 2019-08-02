@@ -1,0 +1,17 @@
+#include <iostream>
+#include "Board.h"
+
+using namespace std;
+
+int main()
+{
+    Board Chess(30);
+    Chess.printCrap();
+    Board Checkers(42);
+    Board Gamon;
+
+    Chess = Chess+Checkers;
+
+    Chess.printCrap();
+    return 0;
+}
