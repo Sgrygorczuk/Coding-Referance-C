@@ -1,0 +1,102 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+This is a stack class it's a specific data type with a restriction
+placed on it. You can only acess the top variable inside of the stacks.
+It's mainly used for function operations, this function comes first once
+it's done the next funtction can be accessed.
+*/
+class ArrayStack{
+
+public:
+        /*
+        The constructor for an array stack requires a index that starts
+        before the array so top = -1.
+        */
+        ArrayStack()
+        {
+            top = -1;
+        }
+
+        /*
+        The Push function adds a value to the stack placing it on top
+        it checks if the stack reached the end of the array, if so
+        it just returns a string saying stack is full.
+        */
+
+        void Push(int Value)
+        {
+            if(top==4)
+            {
+                cout << "Stack is full" << endl;
+                return;
+            }
+            top++;
+            Array[top] = Value;
+        }
+
+        /*
+        This is the pop function it decreases the top by one, no need
+        to erase the value inside the array at top before top-- beauce
+        it will get over written with something later. If the stack
+        is already empty it will give a warning and no go any further.
+        */
+        void Pop()
+        {
+            if(top == -1)
+            {
+                cout << "Stack is Empty" << endl;
+                return;
+            }
+            top--;
+        }
+
+        /*
+        This function prints out the value of stored at the top, or will
+        tell the user that the stack is empty.
+        */
+
+        void PrintTop()
+        {
+            if(top == -1)
+            {
+                cout << "Stack is Empty" << endl;
+                return;
+            }
+            cout << Array[top] << endl;
+
+        }
+
+
+private:
+    int top;
+    int Array[5];
+
+};
+
+
+int main()
+{
+    ArrayStack T;
+    T.Push(1);
+    T.Push(2);
+    T.Push(3);
+    T.Push(4);
+    T.Push(5);
+    T.PrintTop();
+    T.Push(6);
+    T.Pop();
+    T.PrintTop();
+    T.Pop();
+    T.PrintTop();
+    T.Pop();
+    T.PrintTop();
+    T.Pop();
+    T.PrintTop();
+    T.Pop();
+    T.PrintTop();
+
+    return 0;
+}

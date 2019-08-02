@@ -1,0 +1,175 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+A queue is a data structure that is the data comes in one end, tail, and leave the other,
+So first iteam placed in data is the first iteam to leave the data. Queues are used for making the
+same resource, so it's a managment tool to tell which program can execute first and last.
+*/
+
+/*
+To dynamically change the size of an array at it's creation
+you set up a pointer in the private section. And the use the
+pointer = new int [Size] and that will construct the array.
+*/
+
+class Queue
+{
+public:
+
+    /*
+    The Queue constructor takes an array size as it's paramiter.
+    The uses that in a dynamic allocation to create a array of that size.
+    It also sets the front and rear indexs to be -1.
+    */
+    Queue(int Array)
+    {
+        ArraySize = Array;
+        A = new int [ArraySize];
+        Front = -1;
+        Rear = -1;
+    }
+
+    /*
+    This function checks if the queue is empty by comapring the
+    front and rear indexs.
+    */
+    bool IsEmpty()
+    {
+        if((Front == -1) && (Rear == -1))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    /*
+    This function will tell you if the Queue is full. Since this is a circular 
+    Queue it dosen't tell you it's full when it hits the end of the array but when 
+    rear is about to go onto the front index. So if Front = 4, and Rear = 3, then the array 
+    is full. And when Front = 0, and Rear = ArraySize-1, then the Queue is also full. 
+    */
+    
+    bool IsFull()
+    {
+        if(((Rear+1)%ArraySize) == Front)
+        {
+            return true;
+        }
+        els/*
+        If you are passing a bool statment through an if function then you
+        don't need to compare it to anything the value of true or
+        false give by the bool statment will decice.
+        */e
+        {
+            return false;
+        }
+    }
+
+    /*
+    This function will add a new item to the queue. If the queue is full it
+    will just give an error message. If the queue is empty it will set the
+    front and rear indexes to 0 and add a value to that index. If the queue is
+    started it will add a item to the queue. If the rear index reaches the end of 
+    the array and the 0th index has been freed. It will assing a new value to the 
+    0th index starting the loop. 
+    */
+
+    void Enqueue(int value)
+    {
+        /*
+        If you are passing a bool statment through an if function then you
+        don't need to compare it to anything the value of true or
+        false give by the bool statment will decice.
+        */
+        if(IsFull())
+        {
+            cout << "Error: Queue is full!" << endl;
+        }
+        else if(IsEmpty())
+        {
+            Rear++;
+            Front++;
+        }
+        else
+        {
+            Rear = ((Rear+1)%ArraySize);
+        }
+        A[Rear] = value;
+    }
+    /*
+    This function frees up space in the queue by moving the Front index forward by one.
+    If the queue is empty then it will send a error messange. If the front is equal to rear
+    it will free up the whole queue will setting front and rear to -1. And if there is more it will
+    simply move forward as the data left in the area will be over writtien later anyway. If front hit's 
+    the end of the area then with the use of  Front = (Front+1)%ArraySize; it will move to 0th index. 
+    */
+    void Dequeue()
+    {
+        if(IsEmpty())
+        {
+            cout << "Error: The Queue is empty!";
+        }
+        else if(Front == Rear)
+        {
+            Front = -1;
+            Rear = -1;
+        }
+        else
+        {
+            Front = (Front+1)%ArraySize;
+        }
+    }
+
+    int GetArraySize()
+    {
+        return ArraySize;
+    }
+
+    int GetQueueSize()
+    {
+        return Rear-Front;
+    }
+
+    int GetFront()
+    {
+        if(IsEmpty())
+        {
+            cout << "The Queue is empty. ";
+            return 0;
+        }
+        else
+        {
+        return A[Front];
+        }
+    }
+
+private:
+   int* A;
+   int Front;
+   int Rear;
+   int ArraySize;
+
+};
+
+int main()
+{
+    Queue B(10);
+    B.Enqueue(12);
+    cout << B.GetFront() << endl;
+    B.Enqueue(41);
+    B.Dequeue();
+    cout << B.GetFront() << endl;
+    B.Dequeue();
+    cout << B.GetFront() << endl;
+    cout << 6%8 << endl;
+
+
+
+
+
+    return 0;
+}

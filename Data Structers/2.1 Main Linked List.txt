@@ -1,0 +1,49 @@
+#include <iostream>
+#include "LinkedList.h"
+
+using namespace std;
+
+int main()
+{
+    LinkedList One;
+    cout << "Linked List One: " << endl;
+    One.PrintList();
+    One.InsertNodeToFront(4);
+    One.InsertNodeToFront(2);
+    One.InsertNodeToEnd(12);
+    One.InsertNodeToFront(0);
+    One.InsertNodeToFront(41);
+    One.InsertNodeToEnd(1);
+    One.InsertNode(5,2);
+    One.PrintList();
+    One.IterativeReverse();
+    One.PrintList();
+    cout << "Is four in the Linked List? " << One.SearchFor(4)<< endl;
+    cout << "Is seven in the Linked List? " << One.SearchFor(7) << endl;
+    cout << "The size of the list is: " << One.GetSize() <<"\n" <<  endl;
+
+    cout << "Linked List Two: " << endl;
+    LinkedList Two;
+    Two.InsertNode(4,1);
+    Two.InsertNode(10,13);
+    Two.InsertNode(1,14);
+    Two.InsertNode(3,1);
+    Two.PrintList();
+    Two.InsertNode(1,0);
+    Two.PrintList();
+    Two.DeleteNode(2);
+    Two.DeleteNode(10);
+    Two.PrintList();
+    Two.InsertNode(3,5);
+    Two.InsertNode(2,1);
+    Two.PrintList();
+    Two.DeleteNode(10);
+    Two.DeleteNode(2);
+    Two.PrintList();
+    Two.DeleteNode(2);
+    Two.PrintList();
+    Two.IterativeReverse();
+    Two.PrintList();
+
+    return 0;
+}

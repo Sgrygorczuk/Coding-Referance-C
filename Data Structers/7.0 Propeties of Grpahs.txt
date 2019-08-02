@@ -1,0 +1,65 @@
+|V| is the number of vertecies inside of a graph 
+|E| is the number of edges insdie of a graph
+
+There are some special kind of edges in graph
+
+An one edge is called a self loop, it happens when you have one
+vertecie. 
+
+Multiedge or parallel edge where two vertieces are connected by two 
+edges that travel in the same direction. 
+
+If there are no self loop or mulitedge then the graph is considered a simple graph. 
+
+Let's say  we have a grpah with four edges 
+
+V = {V1,V2,V3,V4}
+
+And therefore the number of edges we have is 
+
+|V| = 4;
+
+However we don't connect any of these edges thus 
+
+E = NULL
+
+And 
+
+|E| = 0;
+
+However if we were to draw a directed graph with all vertiecs having an
+edge to all the other edges we'd have |E| = 12. 
+
+Thus if |V| = n, then 0<= |E| <= n(n-1). 
+
+Transalting that into english. If you have n number of vertieces 
+the number of edges you can have is between 0 and n (n-1). So in our 
+case With |V| = 4 we can have between 0 <= |E| <= 4(4-1) ==  0 <= |E| <= 12. If directed. 
+
+For an undriected graph the equation become 
+
+0 <= |E| <= n((n-1))/2
+
+Walk:
+a sequence of verteces where each adjectent pair is connected by an edge.
+So looking at 7.2 Grpahc a posslibe path could be V1->V2->V6->V8. This path will be represnted as 
+
+<V1,V2,V6,V8>
+
+Path:
+A path or a Simple path if no vertieces (and thus no edges) are repated in a walk. 
+
+Another path we could have would be 
+
+<V1,V2,V6,V8,V5,V2,V1,V4>
+
+In this path two vertieces and one edge is repated. 
+
+A Trail is a walk in which no edges are reapted. 
+
+A closed walk is walk where it starts and ends at the same vertex. 
+The lenght of a path is the amount of vertecies. 
+
+A Cycle or a simple is a closed walked with no reption other than the start and end vertex. 
+
+ 

@@ -1,0 +1,134 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+This class implements a queue using linked list.
+*/
+
+class Queue
+{
+public:
+    /*
+    The consturtor takes no paramiters and sets the two node pointers 
+    to NULL
+    */
+    Queue()
+    {
+        Front = NULL;
+        Rear = NULL;
+    }
+    /*
+    The deconsturctor deletes dequeues the queue while it is not empty 
+    */
+    ~Queue()
+    {
+        while(IsNotEmpty())
+        {
+            Dequeue();
+        }
+    }
+    /*
+    Checks if the queue is emtpy and returns a bool anwser. 
+    */
+    bool IsEmpty()
+    {
+        if((Front == NULL) && (Rear == NULL))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    bool IsNotEmpty()
+    {
+        if((Front != NULL) && (Rear != NULL))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    /*
+    Creates new node to be placed at the rear of the Queue, if the Queue 
+    is empty it will set both the front and the rear to the new node, if the
+    Queue has alredy been started it will add the node to the list and move the Rear pointer
+    to the new node.  
+    */
+    void Enqueue(int Value)
+    {
+        node* temp = new node();
+        temp->data = Value;
+        if(IsEmpty())
+        {
+            temp->next = Front;
+            Front = temp;
+            Rear = temp;
+        }
+        else
+        {
+            temp->next = NULL;
+            Rear->next = temp;
+            Rear = temp;
+        }
+    }
+    /*
+    The dequque will give you an error if you try to remove and item from and empty 
+    queue, it will remove the front item and move front pointer to next, and if front
+    and rear point to the same item it will point both of them to NULL.
+    */
+    void Dequeue()
+    {
+        node* temp = Front;
+        if(IsEmpty())
+        {
+            cout << "Error: The Queue is empty!" << endl;
+        }
+        else if (Front == Rear)
+        {
+            Front = Rear = NULL;
+            delete temp;
+        }
+        else
+        {
+            Front = Front->next;
+            delete temp;
+        }
+    }
+
+    int GetFront()
+    {
+        return Front->data;
+    }
+
+    int GetRear()
+    {
+        return Rear->data;
+    }
+
+private:
+   struct node
+   {
+       int data;
+       node* next;
+   };
+   node* Front;
+   node* Rear;
+};
+
+int main()
+{
+    Queue B;
+    B.Enqueue(4);
+    B.Enqueue(3);
+    cout << B.GetFront() << B.GetRear() << endl;
+    B.Enqueue(23);
+
+
+    return 0;
+}

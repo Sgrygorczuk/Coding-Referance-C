@@ -1,0 +1,104 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+This is the stack class with the linked list using insert/delete at head
+it is much easier and give a constant time of O(1) as it you don't have
+to traverse the linked list.
+*/
+class LinkedListStack
+{
+public:
+
+    /*
+    Constructor sets the head to NULL and the size of the
+    Stack to 0.
+    */
+    LinkedListStack()
+    {
+        head = NULL;
+        sizeCounter = 0;
+    }
+
+    /*
+    The insertnode function takes a value and give that to the node
+    as data, then it's inserted to the front of the list.
+    */
+    void InsertNode(int Value)
+    {
+        node* temp = new node();
+        temp->data = Value;
+        temp->next = head;
+        head = temp;
+        sizeCounter++;
+    }
+
+    /*
+    The delete function deletes a node at the front
+    and if there is no no it prints out that there is no node
+    */
+    void DeletNode()
+    {
+        node* temp = head;
+        if(head == NULL)
+        {
+            cout << "\nError: Cannot delete! \nThe stack is already empty!\n" << endl;
+        }
+        else
+        {
+            head = head->next;
+            delete temp;
+            sizeCounter--;
+        }
+    }
+
+    int GetSize()
+    {
+        return sizeCounter;
+    }
+
+    void PrintTopAndSize()
+    {
+        if(head == NULL)
+        {
+            cout << "Stack is empty, size is 0." << endl;
+        }
+        else
+        {
+        cout << "Top is: " << head->data << ". And the size of the stack is: " << GetSize() << "." << endl;
+        }
+    }
+
+private:
+    struct node
+    {
+        int data;
+        node* next;
+    };
+    node* head;
+    int sizeCounter;
+};
+
+int main()
+{
+    LinkedListStack A;
+    A.InsertNode(4);
+    A.PrintTopAndSize();
+    A.InsertNode(5);
+    A.PrintTopAndSize();
+    A.InsertNode(6);
+    A.PrintTopAndSize();
+    A.InsertNode(1);
+    A.PrintTopAndSize();
+    A.DeletNode();
+    A.PrintTopAndSize();
+    A.DeletNode();
+    A.PrintTopAndSize();
+    A.DeletNode();
+    A.PrintTopAndSize();
+    A.DeletNode();
+    A.PrintTopAndSize();
+    A.DeletNode();
+    return 0;
+}

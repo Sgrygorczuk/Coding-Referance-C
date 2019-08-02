@@ -1,0 +1,291 @@
+#include "LinkedList.h"
+#include <iostream>
+using namespace std;
+
+/*
+This is the constructor of the Linked List, it takes
+no input, it sets the head node pointer to NULL.
+*/
+
+LinkedList::LinkedList()
+{
+    head = NULL;
+}
+
+/*
+This is a deconstructor it uses the simple way of delete
+form the front, making head equal the next value and then
+deleting the oringal first node. It does that till
+the Linked list no longer has node, aka head == NULL.
+*/
+
+LinkedList::~LinkedList()
+{
+    node* travel;
+    while(head != NULL)
+    {
+    travel = head;
+    head = travel->next;
+    delete travel;
+    }
+}
+
+/*
+This is a basic insert function, it will only place
+the new node at the start of the Linked List using the
+input x as that value for data in the new node.
+*/
+
+void LinkedList:: InsertNodeToFront(int x)
+{
+    node* temp = new node();
+    temp->data = x;
+    temp->next = head;
+    head = temp;
+}
+
+/*
+This is another simple function it will only
+place new nodes at the end of the Linked List.
+It will use the input of x to set the value of data
+for the new node.
+*/
+
+void LinkedList::InsertNodeToEnd(int x)
+{
+    node* temp = new node();
+    node* travel = head;
+    temp->data = x;
+    temp->next = NULL;
+    while(travel->next != NULL)
+    {
+        travel=travel->next;
+    }
+    travel->next = temp;
+}
+
+/*
+This function is the combination of the two previous
+functions with addition of allowing the user to place a
+node at any position they want. One can place nodes at the
+start, end or any other position using the position input
+and give the node it's data value using value input.
+*/
+
+void LinkedList:: InsertNode(int value, int postion)
+{
+    int counter = 0;
+    node* previous = NULL;
+    node* temp = new node();
+    node* travel = head;
+    temp->data = value;
+
+    if((postion == 0) ||(head == NULL))
+    {
+        temp->next = head;
+        head = temp;
+    }
+
+    else if (postion >= GetSize())
+    {
+        temp->next = NULL;
+        while(travel->next != NULL)
+            {
+            travel=travel->next;
+            }
+        travel->next = temp;
+    }
+
+     else
+        {
+            while(counter != postion)
+            {
+                previous = travel;
+                travel = travel->next;
+                counter++;
+
+            }
+            previous->next = temp;
+            temp->next = travel;
+        }
+}
+
+/*
+This function deletes nodes by the chosen postion,
+there are three ways it can be deleted, from the front where
+position is eqaul to 0, at the end or if the postion chosen is
+larger than the Linked List, and in between where two nodes have
+to be connected before deletion of the chosen node.
+*/
+
+void LinkedList::DeleteNode(int positon)
+{
+    int counter = 0;
+    int LinkSize = GetSize();
+    node* travel = head;
+    node* travel2 = head;
+
+    if (positon == 0)
+    {
+        head = travel->next;
+        delete travel;
+    }
+    else if(positon >= LinkSize)
+    {
+       while(travel->next != NULL)
+       {
+           travel = travel->next;
+       }
+        while(travel2->next != travel)
+       {
+           travel2 =travel2->next;
+       }
+       delete travel;
+       travel2->next = NULL;
+    }
+    else
+    {
+        while(counter != positon)
+        {
+            travel = travel->next;
+            counter++;
+        }
+        counter = 0;
+        while(counter != (positon - 1))
+        {
+            travel2 = travel2->next;
+            counter++;
+        }
+        travel2->next = travel->next;
+        delete travel;
+    }
+}
+
+/*
+This function will reverse the linked list using loops. It uses three
+node pointers, travel, previous and after. The previous node will trail behind
+the travel node and the after node will go in front of the travel node. The travel
+node will point next to previous as it traverses the linked list and then move forward
+in the linked list using the after node. (This still has issues when head == NULL and Linked List
+is one node. Work on it later)
+*/
+
+void LinkedList::IterativeReverse()
+{
+    node* travel = head;
+    node* previous = NULL;
+    node* after;
+    while(travel != NULL)
+    {
+        after = travel->next;
+        travel->next = previous;
+        previous = travel;
+        travel = after;
+
+    }
+    head = previous;
+}
+
+/*
+This function will give you the stored intiger at
+a positon asked for.
+*/
+
+int LinkedList:: GiveValue(int positon)
+{
+    node* travel = head;
+    int counter = 0;
+    if(positon <= 0)
+    {
+        return head->data;
+    }
+    else if(positon >= GetSize())
+    {
+        while(travel->next != NULL)
+        {
+            travel=travel->next;
+        }
+        return travel->data;
+    }
+    else
+    {
+        while(counter != positon)
+        {
+            travel=travel->next;
+            counter++;
+        }
+        return travel->data;
+    }
+}
+/*
+This is the search function, it will take an input of x, and
+will check if a any node in the Linked List holds it and will
+return 1 if there is the value, and 0 if the value is not found.
+This is a forward Search and it will only find the first instance of that
+value.
+*/
+
+int LinkedList::SearchFor(int x)
+{
+    node* travel = head;
+    while(travel->next != NULL)
+    {
+        travel = travel->next;
+        if(travel->data == x)
+            {
+        return 1;
+        }
+    }
+    return 0;
+}
+
+/*
+This is a simple print function, it goes through all of the
+nodes in the linked list and prints the data values
+for each node.
+*/
+
+void LinkedList::PrintList()
+{
+   node* travel;
+   travel = head;
+   if(travel == NULL)
+   {
+    cout << "The Linked List is empty" << endl;
+   }
+   else
+   {
+        cout << "The Linked List is: ";
+        while(travel->next != NULL)
+            {
+                cout << travel->data << ", ";
+                travel = travel->next;
+            }
+        cout << travel->data << endl;
+   }
+}
+
+/*
+This function returns the size of the Linked List.
+*/
+
+int LinkedList:: GetSize()
+{
+   node* travel;
+   int counter = 0;
+   travel = head;
+   if(travel == NULL)
+   {
+    return 0;
+   }
+   else
+   {
+        while(travel->next != NULL)
+            {
+                counter++;
+                travel = travel->next;
+            }
+        counter++;
+   }
+   return counter;
+}

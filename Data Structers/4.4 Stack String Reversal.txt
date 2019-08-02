@@ -1,0 +1,129 @@
+#include <iostream>
+#include "LinkedList.h"
+
+/*
+This program needs the addition of the LinkedList class, Data Structures 2.2,2.3.
+*/
+
+using namespace std;
+
+class Stack
+{
+public:
+
+    Stack()
+    {
+        head = NULL;
+        sizeCounter = 0;
+    }
+
+    void Push(int Value)
+    {
+        node* temp = new node();
+        temp->data = Value;
+        temp->next = head;
+        head = temp;
+        sizeCounter++;
+    }
+
+    void Pop()
+    {
+        node* temp = head;
+        if(head == NULL)
+        {
+            cout << "\nError: Cannot delete! \nThe stack is already empty!\n" << endl;
+        }
+        else
+        {
+            head = head->next;
+            delete temp;
+            sizeCounter--;
+        }
+    }
+
+    int GetTop()
+    {
+        return head->data;
+    }
+
+    int GetSize()
+    {
+        return sizeCounter;
+    }
+
+    void PrintTopAndSize()
+    {
+        if(head == NULL)
+        {
+            cout << "Stack is empty, size is 0." << endl;
+        }
+        else
+        {
+        cout << "Top is: " << head->data << ". And the size of the stack is: " << GetSize() << "." << endl;
+        }
+    }
+
+private:
+    struct node
+    {
+        int data;
+        node* next;
+    };
+    node* head;
+    int sizeCounter;
+};
+
+/*
+Using the stack and the array pointer you can reverse the order of a sting
+using the lenght of the character array, and the pointer to the first element 
+in that array. 
+*/
+
+void StringReversal(int lenght, char* Pointer)
+    {
+        int i = 0;
+        char* Copy = Pointer;
+        Stack Reversal;
+        for(i = 0; i < lenght; i++)
+        {
+            Reversal.Push(*Pointer);
+            *Pointer++;
+        }
+        for(i = 0; i < lenght; i++)
+        {
+            *Copy = Reversal.GetTop();
+            Reversal.Pop();
+            *Copy++;
+        }
+    }
+
+
+int main()
+{
+    int i = 0;
+    char* ArrayPointer;
+    int lenght;
+    cout << "How many characters do you want to use?" << endl;
+    cin >> lenght;
+    char A[lenght];
+    cout << "What are the characters you want to place in?" << endl;
+    for(i = 0; i < lenght; i++)
+    {
+        cin >> A[i];
+    }
+    ArrayPointer = &A[0];
+    cout << "What you entered is: ";
+    for(i = 0; i<lenght; i++)
+    {
+        cout << A[i];
+    }
+    cout << endl;
+    cout << "The reverse of that is: ";
+    StringReversal(lenght, ArrayPointer);
+    for(i = 0; i<lenght; i++)
+    {
+        cout << A[i];
+    }
+
+    return 0;
+}

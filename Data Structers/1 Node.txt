@@ -1,0 +1,128 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+This is a basic node structure, it contains a info source int,
+and a pointer to the next node.
+*/
+
+struct node{
+int data;
+node* next;
+};
+
+node* head;
+
+void insertNode(int x);
+void printList();
+int getSizeLinkedList();
+
+int main()
+{
+
+    /*
+    (1)
+    These are the three basic nodes that a linked list needs, a head so that
+    you are always pointed to the front of the list, a temp node which will create
+    a new node and the travel node which will traverse the linked list for multiple
+    reasons, main one is to find the end of the list so that a new one can be attached.
+    */
+    head = NULL;
+    node* temp;
+    node* travel;
+
+    /*
+    (2)
+    This is how one would create the first node that the head would point to.
+    The new operator acts as both a constructor and dynamic allocator, it creates
+    a new node which the temp node pointer will point to, if a constructor is present
+    one could put variables into the ().
+    */
+    temp = new node();
+    temp->data = 4;
+    temp->next = NULL;
+    head = temp;
+
+    /*
+    (3)
+    This is how to enter a node at the end of the linked list, you will set the travel pointer
+    to the head, and the use a while loop to travel across the linked list looking for the node which
+    points to NULL, once you have that you can then set that node to point to the newly created temp that
+    way you connect the two nodes and expand the linked list.
+    */
+
+    travel = head;
+    temp = new node();
+    temp->data = 5;
+    temp->next = NULL;
+    while(travel->next != NULL)
+    {
+        travel = travel->next;
+    }
+    travel->next = temp;
+
+    /*
+    Start of using functions to add new nodes and print it out as well as get
+    the size of the linked list.
+    */
+
+    insertNode(2);
+    insertNode(5);
+    printList();
+    cout << "The size of the list is: " << getSizeLinkedList() << endl;
+
+
+
+
+    return 0;
+}
+/*
+(4)
+This function is inserting new nodes into the linked list.
+The way it does that is it creates the a new node, then it links says it
+happens before the head node, so temp-next = head, and then makes this new
+node the first node in the list.
+*/
+
+void insertNode(int x)
+{
+    node* temp = new node();
+    temp->data = x;
+    temp->next = head;
+    head = temp;
+}
+
+/*
+This function goes through the whole linked list and prints out the values
+stored in it.
+*/
+
+void printList()
+{
+    node* travel = head;
+    cout << "Linked List is: ";
+    while(travel->next != NULL)
+    {
+        cout << travel->data << ", ";
+        travel = travel->next;
+    }
+    cout << travel->data << endl;
+}
+
+/*
+Similar to the previous function this one goes through the while thing but just counts
+how many nodes are in the list.
+*/
+
+int getSizeLinkedList()
+{
+    node* travel = head;
+    int counter = 1;
+    while(travel->next != NULL)
+    {
+        counter++;
+        travel= travel->next;
+    }
+    return counter;
+}

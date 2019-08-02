@@ -1,0 +1,64 @@
+#include <iostream>
+#include "LinkedList.h"
+
+/*
+In this program we will talk about postfix, infix and prefix.
+And few definitons with that. An operand is the object and
+operation is being preformed on.
+*/
+int main()
+{
+    int a = 10;
+    int b = 5;
+    /*
+    In this case a and be are operands, with this structure
+    <operand> <operator> <operand> This sturcture is called Infix.
+    The syntax for this is that the operator must be between the two
+    operands. In situations like this there is no problem with the work and
+    we can just use the operator on the two operands.
+    */
+    a+b;     //Infix
+    a-2;    //Infix
+    (a*b);  //Infix
+
+    /*
+    In this case we still have an Infix sturcutre, where 2 * 3  is <operand> <operator> <operand>,
+    and where (2*3) + a is <operand> <operator> <operand>, where (2*3) is and operand. In here
+    one will find the issue of having to figure out first which operator to use on which operands first.
+    */
+    2*3+a;
+    /*
+    This can go even further with larger expressions such as this (4*3)+(3-b), here (4*3) is in
+    the infix sturcture, (3-b) is also infix stucture and finally (4*3)+(3-b) is the infix stucuture
+    where (4*3) and (3-b) are operands while the + is a operator on them.
+    */
+    (4*3)+(3-b);
+    /*
+    On the other hand prefix is written with the <operator> <oprand> <operand>, such as + 3 4. And more
+    complex + 3 * 3 2. Where it's 3 + (3*2). This is called prefix structure. 
+    
+    a + b * c
+    -> a + *(b c)
+    -> + a * b c
+    
+    This is the equivalent between infix and prefix
+    
+    */
+    
+    
+
+    /*
+    Lastly one can have postfix sturcutre, it is least time comsuming for computer. It is structed as
+    <operand> <operand> <operator>, so it would be 34+, or 3ab+*, which would mean 3+a*b'
+     
+    a + b * c
+    -> a + (b c)*
+    -> a(b c)* + 
+    -> a b c * +
+    
+    This is the equivalent between infix and postfix. 
+
+    */
+
+    return 0;
+}

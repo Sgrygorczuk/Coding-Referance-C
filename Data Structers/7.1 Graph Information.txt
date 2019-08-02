@@ -1,0 +1,58 @@
+Graphs are a collection of nodes of vertieces. No rule connetion. 
+
+Graph: 
+A Graph G is an ordered pair of a set V of verteixes and 
+a set E of edges, which is an ordered pair and is represtend as this 
+
+			G = (V,E)
+
+V is the first of the pair and E is the second object in the pair
+
+			(V,E) != (E,V)
+
+Look to 1._ Graph iamges the vertices are represented as 
+
+V = {V1, V2, V3, V4, V5, V6, V7, V8}
+
+What is an edge? 
+
+Edge is identifed as a representation of it's two inputs.
+
+There are two types of way edges. Where there is the directed which only allows travel in one direction
+edge 1._ Graph Edge and the undirected edge which can travel in either way. In the directed edge we have 
+our origin and the other point would be the destion, the origi is U and the destination is V. 
+
+This can be represted as 
+
+		(u,v)
+
+And since it is order we can't just go back you have to add a new path from V to U.
+That path would then in turn be represtend as 
+
+		(v,u)
+
+How since they are diffrent paths 
+
+		(u,v) != (v,u) 
+
+On the other hand a undriected edge dosen't require a seocnd path to travel back 
+and forth between the two vertieces and can be represtends as 
+
+		{u,v} 
+
+Which is also equivalent to itself 
+
+		{u,v} = {v,u}
+
+Knowing that we can look at our graphs and say that it is an undirected graph and we 
+can define the endges as 
+
+E = {{V1,V2} , {V1,V3}, {V1,V4}, {V4,V7} , {V4,V8}, {V7,V8},
+     {V2,V5} , {V2,V6}, {V5,V8}, {V6,V8}}
+
+Sometimes all connections cannot be created equal. And thus we have weighted grahs. We give the
+lenght of the edge a weight which represnet it's distance making it a weighted graph. With this one can
+set a travel disntace as a best choice and a worst choice. So supposing you want to travel from A to D, 
+if this was a non weighted graph you could travel A->E->D which would be shortest by vertieces. However,
+in a weighted graph going A->B->C->D is shorted since their length is less thand the path previously mentioned. 
+

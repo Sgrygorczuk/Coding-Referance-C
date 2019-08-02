@@ -1,0 +1,137 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+This is a stack implemented using linked list. It is a tail entering stack, meaning
+that the new node is inserted and deleted from the end of the stack. That means it is 
+a O(n-1) since in deletion case one has to traverse the linked list to get to the end of the
+stack. 
+*/
+class LinkedListStack
+{
+public:
+    /*
+    This is the constructor it sets the top, head and sizeCounter. 
+    */
+    LinkedListStack()
+    {
+        head = NULL;
+        top = NULL;
+        sizeCounter = 0;
+    }
+
+    /*
+    The insert node function first checks if the linked list is 
+    empty if so it enters at the start. After that it will set a 
+    top to the last node. Every new node that is created gets set a 
+    next set to Null and top set to last node. 
+    */
+    void InsertNode(int Value)
+    {
+        node* temp = new node();
+        temp->data = Value;
+        if(head == NULL)
+            {
+                temp->next = head;
+                head = temp;
+                top = temp;
+            }
+        else
+        {
+            top->next=temp;
+            temp->next = NULL;
+            top = temp;
+        }
+        sizeCounter++;
+
+    }
+
+    /*
+    This is the deletion node, it has to use the previous node 
+    pointer to traverse the whole linked list to find the 
+    previous to the top and that means it's operation's time is 
+    O(n-1). 
+    */
+    void DeletNode()
+    {
+        node* previous = head;
+        if(head == NULL)
+        {
+            cout << "The stack is empty." << endl;
+        }
+        else if(sizeCounter == 1)
+        {
+            delete head;
+            head = NULL;
+            top = NULL;
+        }
+        else
+        {
+            while(previous->next != top)
+            {
+                previous = previous->next;
+            }
+            previous->next = NULL;
+            delete top;
+            top = previous;
+            sizeCounter--;
+        }
+    }
+    
+    void printTop()
+    {
+        cout << top->data << endl;
+    }
+
+    int GetSize()
+    {
+        return sizeCounter;
+    }
+
+    void PrintTopAndSize()
+    {
+        if(top == NULL)
+        {
+            cout << "Stack is empty, Size is 0" << endl;
+        }
+        else
+        {
+        cout << "The top is: " << top->data << ". And the size is: " << GetSize() << "." << endl;
+        }
+    }
+
+private:
+    struct node
+    {
+        int data;
+        node* next;
+    };
+    node* head;
+    node* top;
+    int sizeCounter;
+};
+
+int main()
+{
+    LinkedListStack A;
+    A.InsertNode(4);
+    A.PrintTopAndSize();
+    A.InsertNode(41);
+    A.PrintTopAndSize();
+    A.InsertNode(2);
+    A.PrintTopAndSize();
+    A.InsertNode(49);
+    A.PrintTopAndSize();
+    A.DeletNode();
+    A.PrintTopAndSize();
+    A.DeletNode();
+    A.PrintTopAndSize();
+    A.DeletNode();
+    A.PrintTopAndSize();
+    A.DeletNode();
+    A.DeletNode();
+    A.PrintTopAndSize();
+    
+    return 0;
+}
